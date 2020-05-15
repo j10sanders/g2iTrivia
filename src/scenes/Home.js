@@ -28,6 +28,7 @@ const Flex1 = styled.div`
 const Header = styled.div`
   font-weight: 700;
   align-items: center;
+  height: 35px;
 `;
 
 const Home = () => {

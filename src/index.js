@@ -6,6 +6,9 @@ import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
 import "./index.css";
 
+// Strict mode causes a console warning for semantic-ui-react's button component:
+// https://github.com/Semantic-Org/Semantic-UI-React/issues/2732
+// Leaving in because I like their buttons :)
 ReactDOM.render(
   <Router>
     <React.StrictMode>

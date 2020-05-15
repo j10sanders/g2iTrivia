@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Button } from "semantic-ui-react";
 import { store } from "../store";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 const FlexContainer = styled.div`
   min-height: 600px;
@@ -32,6 +33,7 @@ const Header = styled.div`
 const Home = () => {
   const globalState = useContext(store);
   const { dispatch, state } = globalState;
+  let history = useHistory();
 
   useEffect(() => {
     const fetchTrivia = async () => {
@@ -53,6 +55,11 @@ const Home = () => {
     fetchTrivia();
   }, [dispatch]);
   console.log(state, "State");
+
+  const goToQuiz = () => {
+    history.push("/quiz");
+  };
+
   return (
     <FlexContainer>
       <Header>Welcome to the Trivia Challenge!</Header>
@@ -66,6 +73,7 @@ const Home = () => {
         icon="right arrow"
         labelPosition="right"
         size="massive"
+        onClick={goToQuiz}
       />
     </FlexContainer>
   );

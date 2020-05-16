@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { store } from "../store";
 import { Button, Segment } from "semantic-ui-react";
 import { Redirect, useHistory } from "react-router-dom";
+import { FlexContainer, Flex1, Header } from "../styles";
 import styled from "styled-components";
 
 const mock = [
@@ -94,33 +95,6 @@ const mock = [
   },
 ];
 
-const FlexContainer = styled.div`
-  min-height: 600px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-  max-height: 800px;
-  font-size: 30px;
-  line-height: 40px;
-  text-align: center;
-`;
-
-const Flex1 = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Header = styled.div`
-  font-weight: 700;
-  align-items: center;
-  height: 35px;
-`;
-
 const QuestionNumber = styled.div`
   font-size: 20px;
 `;
@@ -134,16 +108,16 @@ const QuestionCard = styled(Segment).attrs({ size: "massive" })`
 const Quiz = () => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
-  // const { questions } = useContext(store).state;
+  const { dispatch } = useContext(store);
   // if (questions.length === 0) {
   //   return <Redirect to="/home" />;
   // }
   let history = useHistory();
-  useEffect(() => {
-    if (questionNumber >= mock.length - 1) {
-      history.push("/results");
-    }
-  }, [questionNumber]);
+  // useEffect(() => {
+  //   if (questionNumber >= mock.length) {
+
+  //   }
+  // }, [questionNumber]);
 
   const currentQuestion = mock[questionNumber];
   const { category, question } = currentQuestion;
@@ -153,6 +127,10 @@ const Quiz = () => {
     const currentQuestion = mock[questionNumber];
     const newAnswer = { ...currentQuestion, userAnswer: answer };
     currentAnswers[questionNumber] = newAnswer;
+    if (questionNumber + 1 === mock.length) {
+      dispatch({ type: "finishedAnswers", payload: currentAnswers });
+      history.push("/results");
+    }
     setQuestionsAnswered(currentAnswers);
     setQuestionNumber(questionNumber + 1);
   };

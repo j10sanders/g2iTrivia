@@ -1,35 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { Button } from "semantic-ui-react";
 import { store } from "../store";
-import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-
-const FlexContainer = styled.div`
-  min-height: 600px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-  max-height: 800px;
-  font-size: 30px;
-  line-height: 40px;
-  text-align: center;
-`;
-
-const Flex1 = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Header = styled.div`
-  font-weight: 700;
-  align-items: center;
-  height: 35px;
-`;
+import { FlexContainer, Flex1, Header } from "../styles";
 
 const Home = () => {
   const globalState = useContext(store);

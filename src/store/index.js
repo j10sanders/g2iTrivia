@@ -40,6 +40,8 @@ const reducer = (state, action) => {
       };
     case "fetchDataFailure":
       return { ...state, error: action.payload, loading: false };
+    case "finishedAnswers":
+      return { ...state, answers: action.payload };
     default:
       throw new Error();
   }

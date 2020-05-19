@@ -7,8 +7,8 @@ export const FlexContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  max-height: 800px;
-  font-size: 30px;
+  max-height: 100%;
+  font-size: 28px;
   line-height: 40px;
   text-align: center;
 `;
@@ -24,5 +24,5 @@ export const Flex1 = styled.div`
 export const Header = styled.div`
   font-weight: 700;
   align-items: center;
-  height: 35px;
+  height: 80px;
 `;

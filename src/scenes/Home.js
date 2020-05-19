@@ -20,9 +20,11 @@ const Home = () => {
             "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean"
           )
         ).json();
+        console.log(typeof response);
+        //JSON.parse(obj.question))
         dispatch({ type: "fetchDataSuccess", payload: response.results });
       } catch (e) {
-        console.alert(e);
+        console.warn(e);
         dispatch({ type: "fetchDataFailure", payload: e });
       }
     };

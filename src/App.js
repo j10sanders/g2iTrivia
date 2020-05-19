@@ -5,10 +5,7 @@ import { StateProvider } from "./store";
 function App() {
   return (
     <StateProvider>
-      <div>
-        App
-        <Routes />
-      </div>
+      <Routes />
     </StateProvider>
   );
 }

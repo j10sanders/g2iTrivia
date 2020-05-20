@@ -53,4 +53,14 @@ Theme.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+Provider.propTypes = {
+  value: PropTypes.shape({
+    state: PropTypes.shape({
+      loading: PropTypes.string.bool,
+      questions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+      answers: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    }).isRequired,
+  }),
+};
+
 export { store, StateProvider, Theme };

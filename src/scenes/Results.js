@@ -20,7 +20,7 @@ const Answer = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-  margin-top: 40px;
+  padding-top: 40px;
   padding-bottom: 20px;
 `;
 

@@ -7,8 +7,13 @@ import styled from "styled-components";
 import MarkDown from "react-markdown";
 import TriviaLoaded from "../components/TriviaLoaded";
 
-const StyledTrue = styled(Button)`
+const True = styled(Button)`
   width: 128px;
+  background-color: #55ec98 !important;
+`;
+
+const False = styled(Button)`
+  background-color: #ff684e !important;
 `;
 
 const QuestionNumber = styled.div`
@@ -62,13 +67,9 @@ const Quiz = () => {
           </QuestionNumber>
         </Flex1>
         <Button.Group size="massive">
-          <StyledTrue positive onClick={() => answer(true)}>
-            True
-          </StyledTrue>
+          <True onClick={() => answer(true)}>True</True>
           <Button.Or />
-          <Button negative onClick={() => answer(false)}>
-            False
-          </Button>
+          <False onClick={() => answer(false)}>False</False>
         </Button.Group>
       </FlexContainer>
     </TriviaLoaded>

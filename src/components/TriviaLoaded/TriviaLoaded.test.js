@@ -46,6 +46,6 @@ describe("", () => {
       </store.Provider>,
       { route: "/quiz" }
     );
-    expect(history.location.pathname).toEqual("/home");
+    expect(history.location.pathname).toEqual("/");
   });
 });

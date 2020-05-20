@@ -34,10 +34,8 @@ const Quiz = () => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
   const { dispatch, state } = useContext(store);
-  // const theme = useContext(ThemeProvider);
   let history = useHistory();
   const { questions } = state;
-
   const currentQuestion = questions[questionNumber];
   const { category, question } = currentQuestion || {};
 

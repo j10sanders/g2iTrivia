@@ -1,11 +1,13 @@
 import React from "react";
 import Routes from "./routes";
-import { StateProvider } from "./store";
+import { StateProvider, Theme } from "./store";
 
 function App() {
   return (
     <StateProvider>
-      <Routes />
+      <Theme>
+        <Routes />
+      </Theme>
     </StateProvider>
   );
 }

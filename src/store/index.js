@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
+import { ThemeProvider } from "styled-components";
 
 const initialState = {
   loading: false,
@@ -33,8 +34,23 @@ const StateProvider = ({ children }) => {
   return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
+const theme = {
+  trueButton: "#55ec98",
+  falseButton: "#ff684e",
+  correct: "#005696",
+  incorrect: "#8e1414",
+};
+
+const Theme = ({ children }) => (
+  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+);
+
 StateProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export { store, StateProvider };
+Theme.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export { store, StateProvider, Theme };

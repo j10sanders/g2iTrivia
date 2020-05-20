@@ -9,11 +9,11 @@ import TriviaLoaded from "../components/TriviaLoaded";
 
 const True = styled(Button)`
   width: 128px;
-  background-color: #55ec98 !important;
+  background-color: ${(props) => props.theme.trueButton} !important;
 `;
 
 const False = styled(Button)`
-  background-color: #ff684e !important;
+  background-color: ${(props) => props.theme.falseButton} !important;
 `;
 
 const QuestionNumber = styled.div`
@@ -34,6 +34,7 @@ const Quiz = () => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [questionsAnswered, setQuestionsAnswered] = useState([]);
   const { dispatch, state } = useContext(store);
+  // const theme = useContext(ThemeProvider);
   let history = useHistory();
   const { questions } = state;
 

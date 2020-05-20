@@ -16,7 +16,7 @@ const Answer = styled.div`
   font-size: 22px;
   padding-top: 10px;
   display: inline-flex;
-  color: ${({ correct }) => (correct ? "black" : "#8e1414")};
+  color: ${({ correct, theme }) => (correct ? theme.correct : theme.incorrect)};
 `;
 
 const ButtonContainer = styled.div`

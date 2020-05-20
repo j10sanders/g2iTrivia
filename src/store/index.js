@@ -1,22 +1,6 @@
 import React, { createContext, useReducer } from "react";
 import PropTypes from "prop-types";
 
-/*
-Example usage:
-import {useContext} from 'react'
-import { store } from '../store'
-
-const globalState = useContext(store)
-const { dispatch, state } = globalState
-const { tabViewing } = state
-
-return(
-  <button onClick={() => dispatch({ type: 'tabViewing', data: 'idk'})}>Name of tab: {tabViewing}</button>
-)
-*/
-
-/* We may want to consider using 'immer' and 'useImmer' */
-
 const initialState = {
   loading: false,
   questions: [],
@@ -24,17 +8,14 @@ const initialState = {
 };
 const store = createContext(initialState);
 const { Provider } = store;
-console.log(store, "STOR");
 
 const reducer = (state, action) => {
-  console.log(action, "action");
   switch (action.type) {
     case "fetchData":
       return { ...state, loading: true };
-    case "fetchDataSuccess":
-      console.log("paylod", action.payload, "HUI");
+    case "fetchQuestionsSuccess":
       return {
-        ...state,
+        answers: [],
         questions: action.payload,
         loading: false,
       };

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import { store } from "../store";
 import { useHistory } from "react-router-dom";
 import { FlexContainer, Flex1, Header } from "../styles";
@@ -20,9 +20,7 @@ const Home = () => {
             "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean"
           )
         ).json();
-        console.log(typeof response);
-        //JSON.parse(obj.question))
-        dispatch({ type: "fetchDataSuccess", payload: response.results });
+        dispatch({ type: "fetchQuestionsSuccess", payload: response.results });
       } catch (e) {
         console.warn(e);
         dispatch({ type: "fetchDataFailure", payload: e });
@@ -30,7 +28,6 @@ const Home = () => {
     };
     fetchTrivia();
   }, [dispatch]);
-  console.log(state, "State");
 
   const goToQuiz = () => {
     history.push("/quiz");
@@ -44,13 +41,17 @@ const Home = () => {
         <Flex1>Can you score 100%?</Flex1>
       </Flex1>
       <Button
-        loading={state.loading}
-        content="Begin"
-        icon="right arrow"
-        labelPosition="right"
+        animated
         size="massive"
+        loading={state.loading}
+        primary
         onClick={goToQuiz}
-      />
+      >
+        <Button.Content content="Begin" visible />
+        <Button.Content hidden>
+          <Icon name="arrow right" />
+        </Button.Content>
+      </Button>
     </FlexContainer>
   );
 };

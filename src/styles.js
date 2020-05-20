@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FlexContainer = styled.div`
-  min-height: 600px;
+  min-height: 100vh;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,9 @@ export const FlexContainer = styled.div`
   font-size: 28px;
   line-height: 40px;
   text-align: center;
+  @media (min-height: 700px) {
+    min-height: 700px;
+  }
 `;
 
 export const Flex1 = styled.div`
